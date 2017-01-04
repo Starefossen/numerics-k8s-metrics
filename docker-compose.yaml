@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  node:
+    image: node:7-alpine
+    working_dir: /usr/src/app
+    volumes:
+      - ".:/usr/src/app"
+      - "~/.minikube:/kubernetes"
+    env_file: .env
+    environment:
+      - CRON_TIME=*/1 * * * *
+      - K8S_API_URL=https://172.16.10.138:8443
+      - K8S_CA_CERT=/kubernetes/ca.crt
+      - K8S_CLIENT_CERT=/kubernetes/apiserver.crt
+      - K8S_CLIENT_KEY=/kubernetes/apiserver.key
+      - NODE_ENV=development
+      - NPM_CONFIG_LOGLEVEL=silent
+      - NPM_CONFIG_PROGRESS=false
+      - NPM_CONFIG_SPIN=false
