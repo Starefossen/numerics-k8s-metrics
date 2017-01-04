@@ -1,0 +1,28 @@
+{
+  "name": "numerics-k8s-metrics",
+  "version": "1.0.0",
+  "description": "Kubernetes Metrics for Numerics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Starefossen/numerics-k8s-metrics.git"
+  },
+  "keywords": [
+    "k8s",
+    "metrics"
+  ],
+  "author": "Hans Kristian Flaatten <hans@starefossen.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Starefossen/numerics-k8s-metrics/issues"
+  },
+  "homepage": "https://github.com/Starefossen/numerics-k8s-metrics#readme",
+  "dependencies": {
+    "k8s": "^0.4.9",
+    "node-schedule": "^1.2.0",
+    "request": "^2.79.0"
+  }
+}
