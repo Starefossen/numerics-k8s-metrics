@@ -17,9 +17,10 @@ const kubeapi = K8s.api({
   },
 });
 
+process.env.CRON_TIME = process.env.CRON_TIME || '*/5 * * * *';
 console.log('Starting cron task', process.env.CRON_TIME);
 
-schedule.scheduleJob(process.env.CRON_TIME || '*/5 * * * *', () => {
+schedule.scheduleJob(process.env.CRON_TIME, () => {
   console.log('Running cron task...');
 
   kubeapi.get('nodes')
