@@ -8,6 +8,7 @@ const schedule = require('node-schedule');
 const kubeapi = K8s.api({
   endpoint: process.env.K8S_API_URL,
   version: '/api/v1',
+  strictSSL: process.env.K8S_STRICT_SSL !== 'false',
   auth: {
     clientKey: fs.readFileSync(process.env.K8S_CLIENT_KEY),
     clientCert: fs.readFileSync(process.env.K8S_CLIENT_CERT),
