@@ -10,9 +10,10 @@ const kubeapi = K8s.api({
   version: '/api/v1',
   strictSSL: process.env.K8S_STRICT_SSL !== 'false',
   auth: {
-    clientKey: fs.readFileSync(process.env.K8S_CLIENT_KEY),
-    clientCert: fs.readFileSync(process.env.K8S_CLIENT_CERT),
-    caCert: fs.readFileSync(process.env.K8S_CA_CERT),
+    token: process.env.K8S_CLIENT_TOKEN ? fs.readFileSync(process.env.K8S_CLIENT_TOKEN) : null,
+    clientKey: process.env.K8S_CLIENT_KEY ? fs.readFileSync(process.env.K8S_CLIENT_KEY) : null,
+    clientCert: process.env.K8S_CLIENT_CERT ? fs.readFileSync(process.env.K8S_CLIENT_CERT) : null,
+    caCert: process.env.K8S_CA_CERT ? fs.readFileSync(process.env.K8S_CA_CERT) : null,
   },
 });
 
